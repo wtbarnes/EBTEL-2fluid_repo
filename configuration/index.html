@@ -1,0 +1,796 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Efficient two-fluid hydrodynamic code for coronal loops">
+      
+      
+      
+        <meta name="author" content="Will Barnes">
+      
+      
+        <link rel="canonical" href="https://rice-solar-physics.github.io/ebtelPlusPlus/configuration/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.0">
+    
+    
+      
+        <title>Configuration - ebtel++</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.33e2939f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ef6f36e2.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#757575">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="grey" data-md-color-accent="yellow">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#heating" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ebtel++" class="md-header__button md-logo" aria-label="ebtel++" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="m278.9 511.5-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2 43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6 144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ebtel++
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Configuration
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/rice-solar-physics/ebtelPlusPlus/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    rice-solar-physics/ebtelPlusPlus
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ebtel++" class="md-nav__button md-logo" aria-label="ebtel++" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="m278.9 511.5-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2 43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6 144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"/></svg>
+
+    </a>
+    ebtel++
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/rice-solar-physics/ebtelPlusPlus/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    rice-solar-physics/ebtelPlusPlus
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Configuration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Configuration
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#heating" class="md-nav__link">
+    Heating
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#differential-emission-measure" class="md-nav__link">
+    Differential Emission Measure
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output" class="md-nav__link">
+    Output
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/" class="md-nav__link">
+        Examples
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        API
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="API" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/classes/" class="md-nav__link">
+        Classes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/structs/" class="md-nav__link">
+        Structs
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/typedefs/" class="md-nav__link">
+        Typedefs
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#heating" class="md-nav__link">
+    Heating
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#differential-emission-measure" class="md-nav__link">
+    Differential Emission Measure
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output" class="md-nav__link">
+    Output
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/rice-solar-physics/ebtelPlusPlus/edit/master/docs/configuration.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  <h1>Configuration</h1>
+                
+                <p>An ebtel++ run is configured by a single XML configuration file. The table below lists all of the input parameters needed for a run. An <a href="https://github.com/rice-solar-physics/ebtelPlusPlus/blob/master/config/ebtel.example.cfg.xml">example configuration file</a> is included in the GitHub repository. The configuration file can be written manually or configured via Python as is done in the <a href="https://github.com/rice-solar-physics/ebtelPlusPlus/tree/master/examples">included examples</a>.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Parameter</th>
+<th align="center">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>total_time</strong></td>
+<td align="center"><code>float</code></td>
+<td align="left">duration of the simulation (in s)</td>
+</tr>
+<tr>
+<td align="center"><strong>tau</strong></td>
+<td align="center"><code>float</code></td>
+<td align="left">timestep (in s); if using adaptive solver, the initial timestep</td>
+</tr>
+<tr>
+<td align="center"><strong>tau_max</strong></td>
+<td align="center"><code>float</code></td>
+<td align="left">maximum allowed timestep (in s) when using adaptive solver</td>
+</tr>
+<tr>
+<td align="center"><strong>loop_length</strong></td>
+<td align="center"><code>float</code></td>
+<td align="left">Loop half-length (in cm)</td>
+</tr>
+<tr>
+<td align="center"><strong>saturation_limit</strong></td>
+<td align="center"><code>float</code></td>
+<td align="left">Flux limiter, <span><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> in section 2.1 of <a href="http://adsabs.harvard.edu/abs/2016ApJ...829...31B" title="Barnes et al. (2016)">Barnes et al. (2016)</a></td>
+</tr>
+<tr>
+<td align="center"><strong>force_single_fluid</strong></td>
+<td align="center"><code>bool</code></td>
+<td align="left">if True, electron and ion populations forced into equilibrium</td>
+</tr>
+<tr>
+<td align="center"><strong>use_c1_loss_correction</strong></td>
+<td align="center"><code>bool</code></td>
+<td align="left">use correction in Eq. 16 of <a href="http://adsabs.harvard.edu/abs/2012ApJ...752..161C" title="Cargill et al. (2012a)">Cargill et al. (2012a)</a></td>
+</tr>
+<tr>
+<td align="center"><strong>use_c1_grav_correction</strong></td>
+<td align="center"><code>bool</code></td>
+<td align="left">use correction in Eq. 12 of <a href="http://adsabs.harvard.edu/abs/2012ApJ...752..161C" title="Cargill et al. (2012a)">Cargill et al. (2012a)</a></td>
+</tr>
+<tr>
+<td align="center"><strong>use_flux_limiting</strong></td>
+<td align="center"><code>bool</code></td>
+<td align="left">impose a flux limiter according to Eq. 22 of <a href="http://adsabs.harvard.edu/abs/2008ApJ...682.1351K" title="Klimchuk et al. (2008)">Klimchuk et al. (2008)</a></td>
+</tr>
+<tr>
+<td align="center"><strong>calculate_dem</strong></td>
+<td align="center"><code>bool</code></td>
+<td align="left">if True, do the TR and coronal DEM calculation; increases compute time significantly</td>
+</tr>
+<tr>
+<td align="center"><strong>save_terms</strong></td>
+<td align="center"><code>bool</code></td>
+<td align="left">if True, save heat flux, <span><span class="MathJax_Preview">c_1</span><script type="math/tex">c_1</script></span> parameter, and radiative loss to a separate file <code>&lt;output_filename&gt;.terms</code></td>
+</tr>
+<tr>
+<td align="center"><strong>use_adaptive_solver</strong></td>
+<td align="center"><code>bool</code></td>
+<td align="left">if True, use adaptive timestep; significantly smaller compute times. In both cases, a Runge-Kutta Cash-Karp integration method is used (see section 16.2 of <a href="http://dl.acm.org/citation.cfm?id=148286" title="Press et al. (1992)">Press et al. (1992)</a>)</td>
+</tr>
+<tr>
+<td align="center"><strong>output_filename</strong></td>
+<td align="center"><code>string</code></td>
+<td align="left">path to output file</td>
+</tr>
+<tr>
+<td align="center"><strong>adaptive_solver_error</strong></td>
+<td align="center"><code>float</code></td>
+<td align="left">Allowed truncation error in adaptive timestep routine</td>
+</tr>
+<tr>
+<td align="center"><strong>adaptive_solver_safety</strong></td>
+<td align="center"><code>float</code></td>
+<td align="left">Refinement factor, between 0 and 1, used if timestep becomes too large and solution contains NaNs. Especially important for short, infrequently heated loops. Also controls decreases in timestep due to thermal conduction timestep. Suggested value is 0.5</td>
+</tr>
+<tr>
+<td align="center"><strong>c1_cond0</strong></td>
+<td align="center"><code>float</code></td>
+<td align="left">Nominal value of <span><span class="MathJax_Preview">c_1</span><script type="math/tex">c_1</script></span> during the conduction phase; see Appendix A of <a href="http://adsabs.harvard.edu/abs/2016ApJ...829...31B" title="Barnes et al. (2016)">Barnes et al. (2016)</a></td>
+</tr>
+<tr>
+<td align="center"><strong>c1_rad0</strong></td>
+<td align="center"><code>float</code></td>
+<td align="left">Nominal value of <span><span class="MathJax_Preview">c_1</span><script type="math/tex">c_1</script></span> during radiative phase; see Eq. 16 of <a href="http://adsabs.harvard.edu/abs/2012ApJ...752..161C" title="Cargill et al. (2012a)">Cargill et al. (2012a)</a></td>
+</tr>
+<tr>
+<td align="center"><strong>helium_to_hydrogen_ratio</strong></td>
+<td align="center"><code>float</code></td>
+<td align="left">Ratio of helium to hydrogen abundance; used in correction to ion mass, ion equation of state</td>
+</tr>
+<tr>
+<td align="center"><strong>surface_gravity</strong></td>
+<td align="center"><code>float</code></td>
+<td align="left">Surface gravity in units of solar surface gravity; should be set to 1.0 unless using for extra-solar cases</td>
+</tr>
+</tbody>
+</table>
+<h3 id="heating">Heating</h3>
+<p>The time dependent heating is configured in a separate node. It includes the following parameters,</p>
+<table>
+<thead>
+<tr>
+<th align="center">Parameter</th>
+<th align="center">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>partition</strong></td>
+<td align="center"><code>float</code></td>
+<td align="left">partition of heating between electrons and ions, between 0 and 1; 1 is pure electron heating, 0 pure ion heating</td>
+</tr>
+<tr>
+<td align="center"><strong>background</strong></td>
+<td align="center"><code>float</code></td>
+<td align="left">constant background heating (in ergs cm<span><span class="MathJax_Preview">^{-3}</span><script type="math/tex">^{-3}</script></span> s<span><span class="MathJax_Preview">^{-1}</span><script type="math/tex">^{-1}</script></span>)</td>
+</tr>
+</tbody>
+</table>
+<p>The heating function is constructed by a list of discrete events and should be specified in the following way,</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;events&gt;</span>
+  <span class="nt">&lt;event</span> <span class="na">magnitude=</span><span class="s">&quot;0.1&quot;</span> <span class="na">rise_start=</span><span class="s">&quot;0.0&quot;</span> <span class="na">rise_end=</span><span class="s">&quot;50.0&quot;</span> <span class="na">decay_start=</span><span class="s">&quot;50.0&quot;</span> <span class="na">decay_end=</span><span class="s">&quot;100.0&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;event</span> <span class="na">magnitude=</span><span class="s">&quot;0.05&quot;</span> <span class="na">rise_start=</span><span class="s">&quot;1000.0&quot;</span> <span class="na">rise_end=</span><span class="s">&quot;1250.0&quot;</span> <span class="na">decay_start=</span><span class="s">&quot;1350.0&quot;</span> <span class="na">decay_end=</span><span class="s">&quot;1450.0&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/events&gt;</span>
+</code></pre></div>
+
+<p>Here, we've configured two separate heating events. The first starts at 0 seconds, rises linearly to a maximum heating rate of 0.1 erg cm<span><span class="MathJax_Preview">^{-3}</span><script type="math/tex">^{-3}</script></span> s<span><span class="MathJax_Preview">^{-1}</span><script type="math/tex">^{-1}</script></span> in 50 seconds, and then immediately falls off with the event concluding at 100 seconds, i.e. a triangular heating profile. The second starts at 1000 seconds, rises to a maximum heating rate of 0.05 erg cm<span><span class="MathJax_Preview">^{-3}</span><script type="math/tex">^{-3}</script></span> s<span><span class="MathJax_Preview">^{-1}</span><script type="math/tex">^{-1}</script></span> in 250 seconds, is sustained at 0.05 for 100 seconds and then the event concludes at 1450 seconds.</p>
+<p>Using this format, it is easy to specify either symmetric or asymmetric events of many different shapes. For more examples, see the <a href="https://github.com/rice-solar-physics/ebtelPlusPlus/blob/master/config/ebtel.example.cfg.xml">example configuration file</a> or the included <a href="https://github.com/rice-solar-physics/ebtelPlusPlus/tree/master/examples">examples</a>.</p>
+<h3 id="differential-emission-measure">Differential Emission Measure</h3>
+<p>Optionally, ebtel++ can can also calculate the differential emission measure (DEM) in both the transition region and the corona. See sections 2.2 and 3 of <a href="http://adsabs.harvard.edu/abs/2008ApJ...682.1351K" title="Klimchuk et al. (2008)">Klimchuk et al. (2008)</a> for the details of this calculation. To enable this calculation, set <code>calculate_dem</code> to <code>True</code> in the configuration file (as described above). Note that this will result in much longer computation times.</p>
+<p>If <code>calculate_dem</code> is set to <code>True</code>, ebtel++ will read in the <code>dem</code> node from the configuration file which should be structured as follows,</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;dem&gt;</span>
+  <span class="nt">&lt;use_new_method&gt;</span>True<span class="nt">&lt;/use_new_method&gt;</span>
+  <span class="nt">&lt;temperature</span> <span class="na">bins=</span><span class="s">&quot;451&quot;</span> <span class="na">log_min=</span><span class="s">&quot;4&quot;</span> <span class="na">log_max=</span><span class="s">&quot;8.5&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/dem&gt;</span>
+</code></pre></div>
+
+<p>If <code>use_new_method</code> is set to True (False), the transition region DEM is calculated using the method outlined in section 3 (the appendix) of <a href="http://adsabs.harvard.edu/abs/2008ApJ...682.1351K" title="Klimchuk et al. (2008)">Klimchuk et al. (2008)</a>. The <code>temperature</code> node configures the range and number of bins used when calculating the DEM. Here, for example, there are 450 bins of equal width between <span><span class="MathJax_Preview">10^4</span><script type="math/tex">10^4</script></span> and <span><span class="MathJax_Preview">10^{8.5}</span><script type="math/tex">10^{8.5}</script></span> K.</p>
+<p>If you do not need to calculate the DEM, set the <code>calculate_dem</code> parameter to False and this section of the configuration file need not be included.</p>
+<h2 id="output">Output</h2>
+<p>Once the EBTEL run has finished, the results are printed to the file specified in <code>output_filename</code> in the configuration file (as described above). Several examples of how to parse the results in Python can be found <a href="https://github.com/rice-solar-physics/ebtelPlusPlus/tree/master/examples">here</a>. In general, the results file follows the structure,</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><span><span class="MathJax_Preview">t_0</span><script type="math/tex">t_0</script></span></td>
+<td align="center"><span><span class="MathJax_Preview">T_e(t_0)</span><script type="math/tex">T_e(t_0)</script></span></td>
+<td align="center"><span><span class="MathJax_Preview">T_i(t_0)</span><script type="math/tex">T_i(t_0)</script></span></td>
+<td align="center"><span><span class="MathJax_Preview">n(t_0)</span><script type="math/tex">n(t_0)</script></span></td>
+<td align="center"><span><span class="MathJax_Preview">p_e(t_0)</span><script type="math/tex">p_e(t_0)</script></span></td>
+<td align="center"><span><span class="MathJax_Preview">p_i(t_0)</span><script type="math/tex">p_i(t_0)</script></span></td>
+<td align="center"><span><span class="MathJax_Preview">v(t_0)</span><script type="math/tex">v(t_0)</script></span></td>
+<td align="center"><span><span class="MathJax_Preview">h(t_0)</span><script type="math/tex">h(t_0)</script></span></td>
+</tr>
+<tr>
+<td align="center">...</td>
+<td align="center">...</td>
+<td align="center">...</td>
+<td align="center">...</td>
+<td align="center">...</td>
+<td align="center">...</td>
+<td align="center">...</td>
+<td align="center">...</td>
+</tr>
+<tr>
+<td align="center"><span><span class="MathJax_Preview">t_i</span><script type="math/tex">t_i</script></span></td>
+<td align="center"><span><span class="MathJax_Preview">T_e(t_i)</span><script type="math/tex">T_e(t_i)</script></span></td>
+<td align="center"><span><span class="MathJax_Preview">T_i(t_i)</span><script type="math/tex">T_i(t_i)</script></span></td>
+<td align="center"><span><span class="MathJax_Preview">n(t_i)</span><script type="math/tex">n(t_i)</script></span></td>
+<td align="center"><span><span class="MathJax_Preview">p_e(t_i)</span><script type="math/tex">p_e(t_i)</script></span></td>
+<td align="center"><span><span class="MathJax_Preview">p_i(t_i)</span><script type="math/tex">p_i(t_i)</script></span></td>
+<td align="center"><span><span class="MathJax_Preview">v(t_i)</span><script type="math/tex">v(t_i)</script></span></td>
+<td align="center"><span><span class="MathJax_Preview">h(t_i)</span><script type="math/tex">h(t_i)</script></span></td>
+</tr>
+<tr>
+<td align="center">...</td>
+<td align="center">...</td>
+<td align="center">...</td>
+<td align="center">...</td>
+<td align="center">...</td>
+<td align="center">...</td>
+<td align="center">...</td>
+<td align="center">...</td>
+</tr>
+<tr>
+<td align="center"><span><span class="MathJax_Preview">t_{N-1}</span><script type="math/tex">t_{N-1}</script></span></td>
+<td align="center"><span><span class="MathJax_Preview">T_e(t_{N-1})</span><script type="math/tex">T_e(t_{N-1})</script></span></td>
+<td align="center"><span><span class="MathJax_Preview">T_i(t_{N-1})</span><script type="math/tex">T_i(t_{N-1})</script></span></td>
+<td align="center"><span><span class="MathJax_Preview">n(t_{N-1})</span><script type="math/tex">n(t_{N-1})</script></span></td>
+<td align="center"><span><span class="MathJax_Preview">p_e(t_{N-1})</span><script type="math/tex">p_e(t_{N-1})</script></span></td>
+<td align="center"><span><span class="MathJax_Preview">p_i(t_{N-1})</span><script type="math/tex">p_i(t_{N-1})</script></span></td>
+<td align="center"><span><span class="MathJax_Preview">v(t_{N-1})</span><script type="math/tex">v(t_{N-1})</script></span></td>
+<td align="center"><span><span class="MathJax_Preview">h(t_{N-1})</span><script type="math/tex">h(t_{N-1})</script></span></td>
+</tr>
+</tbody>
+</table>
+<p>Here <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> is the time, <span><span class="MathJax_Preview">T_e</span><script type="math/tex">T_e</script></span> is the electron temperature, <span><span class="MathJax_Preview">T_i</span><script type="math/tex">T_i</script></span> is the ion temperature, <span><span class="MathJax_Preview">p_e</span><script type="math/tex">p_e</script></span> is the electron pressure, <span><span class="MathJax_Preview">p_i</span><script type="math/tex">p_i</script></span> is the ion pressure, <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> is the density, <span><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> is the velocity, and <span><span class="MathJax_Preview">h</span><script type="math/tex">h</script></span> is the heating rate.</p>
+<p>If <code>calculate_dem</code> is set to True, the TR and coronal DEM results are printed to <code>&lt;output_filename&gt;.dem_tr</code> and <code>&lt;output_filename&gt;.dem_corona</code>, respectively. These output files are structured in the following way,</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><span><span class="MathJax_Preview">T_0</span><script type="math/tex">T_0</script></span></td>
+<td align="center">...</td>
+<td align="center"><span><span class="MathJax_Preview">T_j</span><script type="math/tex">T_j</script></span></td>
+<td align="center">...</td>
+<td align="center"><span><span class="MathJax_Preview">T_{M-1}</span><script type="math/tex">T_{M-1}</script></span></td>
+</tr>
+<tr>
+<td align="center">DEM<span><span class="MathJax_Preview">(t_0,T_0)</span><script type="math/tex">(t_0,T_0)</script></span></td>
+<td align="center">...</td>
+<td align="center">DEM<span><span class="MathJax_Preview">(t_0,T_j)</span><script type="math/tex">(t_0,T_j)</script></span></td>
+<td align="center">...</td>
+<td align="center">DEM<span><span class="MathJax_Preview">(t_0,T_{M-1})</span><script type="math/tex">(t_0,T_{M-1})</script></span></td>
+</tr>
+<tr>
+<td align="center">...</td>
+<td align="center">...</td>
+<td align="center">...</td>
+<td align="center">...</td>
+<td align="center">...</td>
+</tr>
+<tr>
+<td align="center">DEM<span><span class="MathJax_Preview">(t_i,T_0)</span><script type="math/tex">(t_i,T_0)</script></span></td>
+<td align="center">...</td>
+<td align="center">DEM<span><span class="MathJax_Preview">(t_i,T_j)</span><script type="math/tex">(t_i,T_j)</script></span></td>
+<td align="center">...</td>
+<td align="center">DEM<span><span class="MathJax_Preview">(t_i,T_{M-1})</span><script type="math/tex">(t_i,T_{M-1})</script></span></td>
+</tr>
+<tr>
+<td align="center">...</td>
+<td align="center">...</td>
+<td align="center">...</td>
+<td align="center">...</td>
+<td align="center">...</td>
+</tr>
+<tr>
+<td align="center">DEM<span><span class="MathJax_Preview">(t_{N-1},T_0)</span><script type="math/tex">(t_{N-1},T_0)</script></span></td>
+<td align="center">...</td>
+<td align="center">DEM<span><span class="MathJax_Preview">(t_{N-1},T_j)</span><script type="math/tex">(t_{N-1},T_j)</script></span></td>
+<td align="center">...</td>
+<td align="center">DEM<span><span class="MathJax_Preview">(t_{N-1},T_{M-1})</span><script type="math/tex">(t_{N-1},T_{M-1})</script></span></td>
+</tr>
+</tbody>
+</table>
+<p>where <span><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span> is the number of temperature bins and <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> is again the number of timesteps.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href=".." class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Getting Started
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../examples/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Examples
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="http://solar.rice.edu/" target="_blank" rel="noopener" title="solar.rice.edu" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M336.5 160C322 70.7 287.8 8 248 8s-74 62.7-88.5 152h177zM152 256c0 22.2 1.2 43.5 3.3 64h185.3c2.1-20.5 3.3-41.8 3.3-64s-1.2-43.5-3.3-64H155.3c-2.1 20.5-3.3 41.8-3.3 64zm324.7-96c-28.6-67.9-86.5-120.4-158-141.6 24.4 33.8 41.2 84.7 50 141.6h108zM177.2 18.4C105.8 39.6 47.8 92.1 19.3 160h108c8.7-56.9 25.5-107.8 49.9-141.6zM487.4 192H372.7c2.1 21 3.3 42.5 3.3 64s-1.2 43-3.3 64h114.6c5.5-20.5 8.6-41.8 8.6-64s-3.1-43.5-8.5-64zM120 256c0-21.5 1.2-43 3.3-64H8.6C3.2 212.5 0 233.8 0 256s3.2 43.5 8.6 64h114.6c-2-21-3.2-42.5-3.2-64zm39.5 96c14.5 89.3 48.7 152 88.5 152s74-62.7 88.5-152h-177zm159.3 141.6c71.4-21.2 129.4-73.7 158-141.6h-108c-8.8 56.9-25.6 107.8-50 141.6zM19.3 352c28.6 67.9 86.5 120.4 158 141.6-24.4-33.8-41.2-84.7-50-141.6h-108z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/rice-solar-physics" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d892486b.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1774 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Efficient two-fluid hydrodynamic code for coronal loops">
+      
+      
+      
+        <meta name="author" content="Will Barnes">
+      
+      
+        <link rel="canonical" href="https://rice-solar-physics.github.io/ebtelPlusPlus/api/classes/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.0">
+    
+    
+      
+        <title>Classes - ebtel++</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.33e2939f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#757575">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="grey" data-md-color-accent="yellow">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#class-dem" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="ebtel++" class="md-header__button md-logo" aria-label="ebtel++" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="m278.9 511.5-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2 43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6 144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ebtel++
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Classes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/rice-solar-physics/ebtelPlusPlus/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    rice-solar-physics/ebtelPlusPlus
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ebtel++" class="md-nav__button md-logo" aria-label="ebtel++" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="m278.9 511.5-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2 43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6 144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"/></svg>
+
+    </a>
+    ebtel++
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/rice-solar-physics/ebtelPlusPlus/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    rice-solar-physics/ebtelPlusPlus
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/" class="md-nav__link">
+        Configuration
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/" class="md-nav__link">
+        Examples
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      <label class="md-nav__link" for="__nav_4">
+        API
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="API" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Classes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Classes
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#class-dem" class="md-nav__link">
+    class Dem
+  </a>
+  
+    <nav class="md-nav" aria-label="class Dem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fields" class="md-nav__link">
+    Fields
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constructors" class="md-nav__link">
+    Constructors
+  </a>
+  
+    <nav class="md-nav" aria-label="Constructors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dem" class="md-nav__link">
+    Dem ()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dem-loop-loop" class="md-nav__link">
+    Dem (LOOP loop)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#destructors" class="md-nav__link">
+    Destructors
+  </a>
+  
+    <nav class="md-nav" aria-label="Destructors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dem_1" class="md-nav__link">
+    ~Dem ()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#void-calculatedem-int-i" class="md-nav__link">
+    void CalculateDEM (int i)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#void-printtofile-int-num_steps" class="md-nav__link">
+    void PrintToFile (int num_steps)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#class-heater" class="md-nav__link">
+    class Heater
+  </a>
+  
+    <nav class="md-nav" aria-label="class Heater">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fields_1" class="md-nav__link">
+    Fields
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constructors_1" class="md-nav__link">
+    Constructors
+  </a>
+  
+    <nav class="md-nav" aria-label="Constructors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#heater-tinyxml2xmlelement-heating_node" class="md-nav__link">
+    Heater (tinyxml2::XMLElement heating_node)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#heater" class="md-nav__link">
+    Heater ()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#destructors_1" class="md-nav__link">
+    Destructors
+  </a>
+  
+    <nav class="md-nav" aria-label="Destructors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#heater_1" class="md-nav__link">
+    ~Heater ()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods_1" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#double-get_heating-double-time" class="md-nav__link">
+    double Get_Heating (double time)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#class-loop" class="md-nav__link">
+    class Loop
+  </a>
+  
+    <nav class="md-nav" aria-label="class Loop">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    Variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constructors_2" class="md-nav__link">
+    Constructors
+  </a>
+  
+    <nav class="md-nav" aria-label="Constructors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loop-char-config" class="md-nav__link">
+    Loop (char config)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loop" class="md-nav__link">
+    Loop ()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#destructors_2" class="md-nav__link">
+    Destructors
+  </a>
+  
+    <nav class="md-nav" aria-label="Destructors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loop_1" class="md-nav__link">
+    ~Loop ()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods_2" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#double-calculatec1-double-temperature_e-double-temperature_i-double-density" class="md-nav__link">
+    double CalculateC1 (double temperature_e, double temperature_i, double density)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#double-calculatec2" class="md-nav__link">
+    double CalculateC2 ()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#double-calculatec3" class="md-nav__link">
+    double CalculateC3 ()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#void-calculatederivs-state_type-state-state_type-derivs-double-time" class="md-nav__link">
+    void CalculateDerivs (state_type state, state_type derivs, double time)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#state_type-calculateinitialconditions" class="md-nav__link">
+    state_type CalculateInitialConditions ()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#double-calculateradiativeloss-double-temperature" class="md-nav__link">
+    double CalculateRadiativeLoss (double temperature)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#double-calculatescaleheight-double-temperature_e-double-temperature_i" class="md-nav__link">
+    double CalculateScaleHeight (double temperature_e, double temperature_i)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#double-calculatethermalconduction-double-temperature-double-density-stdstring-species" class="md-nav__link">
+    double CalculateThermalConduction (double temperature, double density, std::string species)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#double-calculatevelocity-double-temperature_e-double-temperature_i-double-pressure_e" class="md-nav__link">
+    double CalculateVelocity (double temperature_e, double temperature_i, double pressure_e)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#state_type-getstate" class="md-nav__link">
+    state_type GetState ()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#void-printtofile-int-num_steps_1" class="md-nav__link">
+    void PrintToFile (int num_steps)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#void-saveresults-int-i-double-time" class="md-nav__link">
+    void SaveResults (int i, double time)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#void-saveterms" class="md-nav__link">
+    void SaveTerms ()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#void-setstate-state_type-state" class="md-nav__link">
+    void SetState (state_type state)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#void-setup" class="md-nav__link">
+    void Setup ()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#class-observer" class="md-nav__link">
+    class Observer
+  </a>
+  
+    <nav class="md-nav" aria-label="class Observer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constructors_3" class="md-nav__link">
+    Constructors
+  </a>
+  
+    <nav class="md-nav" aria-label="Constructors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#observer-loop-loop-dem-dem" class="md-nav__link">
+    Observer (LOOP loop, DEM dem)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#destructors_3" class="md-nav__link">
+    Destructors
+  </a>
+  
+    <nav class="md-nav" aria-label="Destructors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#observer" class="md-nav__link">
+    ~Observer ()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods_3" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#int-checknan-state_type-state-double-time-double-tau-double-old_time-double-old_tau" class="md-nav__link">
+    int CheckNan (state_type state, double time, double tau, double old_time, double old_tau)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#void-observe-state_type-state-double-time" class="md-nav__link">
+    void Observe (state_type state, double time)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structs/" class="md-nav__link">
+        Structs
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../typedefs/" class="md-nav__link">
+        Typedefs
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#class-dem" class="md-nav__link">
+    class Dem
+  </a>
+  
+    <nav class="md-nav" aria-label="class Dem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fields" class="md-nav__link">
+    Fields
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constructors" class="md-nav__link">
+    Constructors
+  </a>
+  
+    <nav class="md-nav" aria-label="Constructors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dem" class="md-nav__link">
+    Dem ()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dem-loop-loop" class="md-nav__link">
+    Dem (LOOP loop)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#destructors" class="md-nav__link">
+    Destructors
+  </a>
+  
+    <nav class="md-nav" aria-label="Destructors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dem_1" class="md-nav__link">
+    ~Dem ()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#void-calculatedem-int-i" class="md-nav__link">
+    void CalculateDEM (int i)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#void-printtofile-int-num_steps" class="md-nav__link">
+    void PrintToFile (int num_steps)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#class-heater" class="md-nav__link">
+    class Heater
+  </a>
+  
+    <nav class="md-nav" aria-label="class Heater">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fields_1" class="md-nav__link">
+    Fields
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constructors_1" class="md-nav__link">
+    Constructors
+  </a>
+  
+    <nav class="md-nav" aria-label="Constructors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#heater-tinyxml2xmlelement-heating_node" class="md-nav__link">
+    Heater (tinyxml2::XMLElement heating_node)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#heater" class="md-nav__link">
+    Heater ()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#destructors_1" class="md-nav__link">
+    Destructors
+  </a>
+  
+    <nav class="md-nav" aria-label="Destructors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#heater_1" class="md-nav__link">
+    ~Heater ()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods_1" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#double-get_heating-double-time" class="md-nav__link">
+    double Get_Heating (double time)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#class-loop" class="md-nav__link">
+    class Loop
+  </a>
+  
+    <nav class="md-nav" aria-label="class Loop">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    Variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constructors_2" class="md-nav__link">
+    Constructors
+  </a>
+  
+    <nav class="md-nav" aria-label="Constructors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loop-char-config" class="md-nav__link">
+    Loop (char config)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loop" class="md-nav__link">
+    Loop ()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#destructors_2" class="md-nav__link">
+    Destructors
+  </a>
+  
+    <nav class="md-nav" aria-label="Destructors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loop_1" class="md-nav__link">
+    ~Loop ()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods_2" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#double-calculatec1-double-temperature_e-double-temperature_i-double-density" class="md-nav__link">
+    double CalculateC1 (double temperature_e, double temperature_i, double density)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#double-calculatec2" class="md-nav__link">
+    double CalculateC2 ()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#double-calculatec3" class="md-nav__link">
+    double CalculateC3 ()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#void-calculatederivs-state_type-state-state_type-derivs-double-time" class="md-nav__link">
+    void CalculateDerivs (state_type state, state_type derivs, double time)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#state_type-calculateinitialconditions" class="md-nav__link">
+    state_type CalculateInitialConditions ()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#double-calculateradiativeloss-double-temperature" class="md-nav__link">
+    double CalculateRadiativeLoss (double temperature)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#double-calculatescaleheight-double-temperature_e-double-temperature_i" class="md-nav__link">
+    double CalculateScaleHeight (double temperature_e, double temperature_i)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#double-calculatethermalconduction-double-temperature-double-density-stdstring-species" class="md-nav__link">
+    double CalculateThermalConduction (double temperature, double density, std::string species)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#double-calculatevelocity-double-temperature_e-double-temperature_i-double-pressure_e" class="md-nav__link">
+    double CalculateVelocity (double temperature_e, double temperature_i, double pressure_e)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#state_type-getstate" class="md-nav__link">
+    state_type GetState ()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#void-printtofile-int-num_steps_1" class="md-nav__link">
+    void PrintToFile (int num_steps)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#void-saveresults-int-i-double-time" class="md-nav__link">
+    void SaveResults (int i, double time)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#void-saveterms" class="md-nav__link">
+    void SaveTerms ()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#void-setstate-state_type-state" class="md-nav__link">
+    void SetState (state_type state)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#void-setup" class="md-nav__link">
+    void Setup ()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#class-observer" class="md-nav__link">
+    class Observer
+  </a>
+  
+    <nav class="md-nav" aria-label="class Observer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constructors_3" class="md-nav__link">
+    Constructors
+  </a>
+  
+    <nav class="md-nav" aria-label="Constructors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#observer-loop-loop-dem-dem" class="md-nav__link">
+    Observer (LOOP loop, DEM dem)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#destructors_3" class="md-nav__link">
+    Destructors
+  </a>
+  
+    <nav class="md-nav" aria-label="Destructors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#observer" class="md-nav__link">
+    ~Observer ()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods_3" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#int-checknan-state_type-state-double-time-double-tau-double-old_time-double-old_tau" class="md-nav__link">
+    int CheckNan (state_type state, double time, double tau, double old_time, double old_tau)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#void-observe-state_type-state-double-time" class="md-nav__link">
+    void Observe (state_type state, double time)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/rice-solar-physics/ebtelPlusPlus/edit/master/docs/api/classes.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  <h1>Classes</h1>
+                
+                <h2 id="class-dem"><strong>class</strong> Dem</h2>
+<hr />
+<p>Class for holding all of the methods needed to calculate the differential emission measure in the transition region and the corona. Requires the loop object for knowledge about the evolution of the coronal loop. </p>
+<h3 id="fields">Fields</h3>
+<table>
+<thead>
+<tr>
+<th align="center">Name</th>
+<th align="center">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>loop</strong></td>
+<td align="center"><code>LOOP</code></td>
+<td align="left">Loop object</td>
+</tr>
+<tr>
+<td align="center"><strong>use_new_method</strong></td>
+<td align="center"><code>bool</code></td>
+<td align="left">Method option for DEM TR calculation</td>
+</tr>
+<tr>
+<td align="center"><strong>__temperature</strong></td>
+<td align="center"><code>std::vector</code></td>
+<td align="left">Temperature range</td>
+</tr>
+<tr>
+<td align="center"><strong>__radiative_loss</strong></td>
+<td align="center"><code>std::vector</code></td>
+<td align="left">Radiative loss</td>
+</tr>
+<tr>
+<td align="center"><strong>dem_TR</strong></td>
+<td align="center"><code>std::vector</code></td>
+<td align="left">Transition region DEM</td>
+</tr>
+<tr>
+<td align="center"><strong>dem_corona</strong></td>
+<td align="center"><code>std::vector</code></td>
+<td align="left">Coronal DEM</td>
+</tr>
+</tbody>
+</table>
+<h3 id="constructors">Constructors</h3>
+<h4 id="dem">Dem ()</h4>
+<blockquote>
+<p>Used when we don't want to actually do the DEM
+calculation. Just a placeholder.</p>
+</blockquote>
+<h4 id="dem-loop-loop">Dem (<code>LOOP</code> loop)</h4>
+<blockquote>
+<p>Setup Dem object to calculate differential emission measure in both the
+transition region and the corona.</p>
+</blockquote>
+<ul>
+<li><strong>loop</strong>    Loop object that provides needed parameters and methods</li>
+</ul>
+<h3 id="destructors">Destructors</h3>
+<h4 id="dem_1">~Dem ()</h4>
+<blockquote></blockquote>
+<h3 id="methods">Methods</h3>
+<h4 id="void-calculatedem-int-i"><code>void</code> CalculateDEM (<code>int</code> i)</h4>
+<blockquote>
+<p>Front end for DEM calculations. Calls methods to calculate both
+the transition region and coronal DEM across the entire specified
+temperature range.</p>
+</blockquote>
+<ul>
+<li><strong>i</strong>    Timestep index</li>
+</ul>
+<h4 id="void-printtofile-int-num_steps"><code>void</code> PrintToFile (<code>int</code> num_steps)</h4>
+<blockquote>
+<p>Print coronal and transition region DEM arrays to separate files.
+The filenames are the output filename as given in Dem::loop,
+suffixed by <code>.dem_corona</code> and <code>.dem_tr</code>, respectively. The first
+row of each file is the temperature vector, Dem::__temperature.</p>
+</blockquote>
+<ul>
+<li><strong>num_steps</strong>    number of steps taken by the integration routine</li>
+</ul>
+<h2 id="class-heater"><strong>class</strong> Heater</h2>
+<hr />
+<p>Class for configuring time-dependent heating profiles. Accepts a properly formatted XML node and calculates the heating rate at any time. Heating profiles must be specified in terms of num_events heating pulses plus a static background background. You can also initialize a blank object and set the event parameters later on. </p>
+<h3 id="fields_1">Fields</h3>
+<table>
+<thead>
+<tr>
+<th align="center">Name</th>
+<th align="center">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>background</strong></td>
+<td align="center"><code>double</code></td>
+<td align="left">Background heating rate (in erg cm^-3 s^-1)</td>
+</tr>
+<tr>
+<td align="center"><strong>num_events</strong></td>
+<td align="center"><code>int</code></td>
+<td align="left">Number of events</td>
+</tr>
+<tr>
+<td align="center"><strong>time_start_rise</strong></td>
+<td align="center"><code>std::vector</code></td>
+<td align="left">Starting time of the rise phase (in s)</td>
+</tr>
+<tr>
+<td align="center"><strong>time_end_rise</strong></td>
+<td align="center"><code>std::vector</code></td>
+<td align="left">Ending time of the rise phase (in s)</td>
+</tr>
+<tr>
+<td align="center"><strong>time_start_decay</strong></td>
+<td align="center"><code>std::vector</code></td>
+<td align="left">Starting time of the decay phase (in s)</td>
+</tr>
+<tr>
+<td align="center"><strong>time_end_decay</strong></td>
+<td align="center"><code>std::vector</code></td>
+<td align="left">Ending time of the decay phase (in s)</td>
+</tr>
+<tr>
+<td align="center"><strong>magnitude</strong></td>
+<td align="center"><code>std::vector</code></td>
+<td align="left">Magnitudes of the events (in erg cm^-3 s^-1)</td>
+</tr>
+<tr>
+<td align="center"><strong>partition</strong></td>
+<td align="center"><code>double</code></td>
+<td align="left">Partition of energy between electrons and ions; 1 corresponds to pure electron heating and 0 pure ion heating. For a single-fluid treatment, use 0.5</td>
+</tr>
+</tbody>
+</table>
+<h3 id="constructors_1">Constructors</h3>
+<h4 id="heater-tinyxml2xmlelement-heating_node">Heater (<code>tinyxml2::XMLElement</code> heating_node)</h4>
+<blockquote></blockquote>
+<ul>
+<li><strong>heating_node</strong>    XML node holding the heating information</li>
+</ul>
+<h4 id="heater">Heater ()</h4>
+<blockquote></blockquote>
+<h3 id="destructors_1">Destructors</h3>
+<h4 id="heater_1">~Heater ()</h4>
+<blockquote></blockquote>
+<h3 id="methods_1">Methods</h3>
+<h4 id="double-get_heating-double-time"><code>double</code> Get_Heating (<code>double</code> time)</h4>
+<blockquote>
+<p>Given the heating profile specified by the configuration file,
+return the heating rate at the given time time</p>
+</blockquote>
+<ul>
+<li><strong>time</strong>    current time (in s)</li>
+</ul>
+<h2 id="class-loop"><strong>class</strong> Loop</h2>
+<hr />
+<p>Class for holding all of the information about the loop. It can be passed a configuration and after the initial conditions are set up, it is evolved through time. </p>
+<h3 id="variables">Variables</h3>
+<table>
+<thead>
+<tr>
+<th align="center">Name</th>
+<th align="center">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>heater</strong></td>
+<td align="center"><code>HEATER</code></td>
+<td align="left">Instance of the Heater object</td>
+</tr>
+<tr>
+<td align="center"><strong>parameters</strong></td>
+<td align="center"><code>Parameters</code></td>
+<td align="left">Parameter structure</td>
+</tr>
+<tr>
+<td align="center"><strong>terms</strong></td>
+<td align="center"><code>Terms</code></td>
+<td align="left">Terms structure</td>
+</tr>
+</tbody>
+</table>
+<h3 id="constructors_2">Constructors</h3>
+<h4 id="loop-char-config">Loop (<code>char</code> config)</h4>
+<blockquote>
+<p>Setup the loop object by reading in parameters from the configuration
+file &lt;ebtel_config&gt; into the Loop::parameters structure. The constructor also creates the Loop::heater object for calculating
+the heating profile.</p>
+</blockquote>
+<ul>
+<li><strong>config</strong>    main configuration file</li>
+</ul>
+<h4 id="loop">Loop ()</h4>
+<blockquote>
+<p>Create object without any configuration. Useful if
+parameters are going to be read in from memory rather
+than from a configuration file.</p>
+</blockquote>
+<h3 id="destructors_2">Destructors</h3>
+<h4 id="loop_1">~Loop ()</h4>
+<blockquote></blockquote>
+<h3 id="methods_2">Methods</h3>
+<h4 id="double-calculatec1-double-temperature_e-double-temperature_i-double-density"><code>double</code> CalculateC1 (<code>double</code> temperature_e, <code>double</code> temperature_i, <code>double</code> density)</h4>
+<blockquote>
+<p>Calculate the <span><span class="MathJax_Preview">c_1</span><script type="math/tex">c_1</script></span> parameter, the ratio between the transition and coronal radiative losses</p>
+</blockquote>
+<ul>
+<li>
+<p><strong>temperature_e</strong>    electron temperature (in K)</p>
+</li>
+<li>
+<p><strong>temperature_i</strong>    ion temperature (in K)</p>
+</li>
+<li>
+<p><strong>density</strong>    number density (in cm<span><span class="MathJax_Preview">^{-3}</span><script type="math/tex">^{-3}</script></span>)</p>
+</li>
+</ul>
+<h4 id="double-calculatec2"><code>double</code> CalculateC2 ()</h4>
+<blockquote>
+<p>Calculate the ratio of the average to apex temperature. Fixed at 0.9 for now.</p>
+</blockquote>
+<h4 id="double-calculatec3"><code>double</code> CalculateC3 ()</h4>
+<blockquote>
+<p>Calculate the ratio of the base (corona/interface point)to apex temperature.
+Fixed at 0.6 for now.</p>
+</blockquote>
+<h4 id="void-calculatederivs-state_type-state-state_type-derivs-double-time"><code>void</code> CalculateDerivs (<code>state_type</code> state, <code>state_type</code> derivs, <code>double</code> time)</h4>
+<blockquote>
+<p>Calculate the rate of change of the electron pressure, ion pressure, and
+density according to the two-fluid EBTEL equations. A full derivation of these
+equations can be found in Appendix B of <a href="http://adsabs.harvard.edu/abs/2016ApJ...829...31B">Barnes et al. (2016)</a>.</p>
+</blockquote>
+<ul>
+<li>
+<p><strong>state</strong>    current state of the loop</p>
+</li>
+<li>
+<p><strong>derivs</strong>    </p>
+</li>
+<li>
+<p><strong>time</strong>    current time (in s)</p>
+</li>
+</ul>
+<h4 id="state_type-calculateinitialconditions"><code>state_type</code> CalculateInitialConditions ()</h4>
+<blockquote>
+<p>Calculate the equilibrium values of pressure, temperature, and
+density based on the supplied loop half-length and initial heating
+according to the equilibrium solutions of the EBTEL equations.</p>
+</blockquote>
+<h4 id="double-calculateradiativeloss-double-temperature"><code>double</code> CalculateRadiativeLoss (<code>double</code> temperature)</h4>
+<blockquote>
+<p>Calculate the radiative loss at a particular temperature using the power-law approximation.
+The formulation used here is based on the calculations of John Raymond (1994, private
+communication) and twice the coronal abundances of Meyer (1985). This is the same power-law
+radiative loss function as is implemented in the HYDRAD code and the EBTEL IDL code.</p>
+</blockquote>
+<ul>
+<li><strong>temperature</strong>    electron temperature (in K)</li>
+</ul>
+<h4 id="double-calculatescaleheight-double-temperature_e-double-temperature_i"><code>double</code> CalculateScaleHeight (<code>double</code> temperature_e, <code>double</code> temperature_i)</h4>
+<blockquote>
+<p>Calculate the temperature scale height of the loop. This parameter is used when
+accounting for gravitational stratification in the model.</p>
+</blockquote>
+<ul>
+<li>
+<p><strong>temperature_e</strong>    electron temperature (in K)</p>
+</li>
+<li>
+<p><strong>temperature_i</strong>    ion temperature (in K)</p>
+</li>
+</ul>
+<h4 id="double-calculatethermalconduction-double-temperature-double-density-stdstring-species"><code>double</code> CalculateThermalConduction (<code>double</code> temperature, <code>double</code> density, <code>std::string</code> species)</h4>
+<blockquote>
+<p>Calculate the heat flux for either the electrons or ions, depending on the value of species.
+The classical Spitzer formula is used. If &lt;Parameters.use_flux_limiting&gt; is set to true
+in the configuration file, then a flux limiter is used to prevent runaway cooling.</p>
+</blockquote>
+<ul>
+<li>
+<p><strong>temperature</strong>    temperature (in K)</p>
+</li>
+<li>
+<p><strong>density</strong>    density (in cm<span><span class="MathJax_Preview">^{-3}</span><script type="math/tex">^{-3}</script></span>)</p>
+</li>
+<li>
+<p><strong>species</strong>    either "electron" or "ion"</p>
+</li>
+</ul>
+<h4 id="double-calculatevelocity-double-temperature_e-double-temperature_i-double-pressure_e"><code>double</code> CalculateVelocity (<code>double</code> temperature_e, <code>double</code> temperature_i, <code>double</code> pressure_e)</h4>
+<blockquote>
+<p>Calculate the velocity using the base electron pressure and the enthalpy
+flux as determined by our EBTEL equations.</p>
+</blockquote>
+<ul>
+<li>
+<p><strong>temperature_e</strong>    electron temperature (in K)</p>
+</li>
+<li>
+<p><strong>temperature_i</strong>    ion temperature (in K)</p>
+</li>
+<li>
+<p><strong>pressure_e</strong>    electron pressure (in dyne cm<span><span class="MathJax_Preview">^{-2}</span><script type="math/tex">^{-2}</script></span> s<span><span class="MathJax_Preview">^{-1}</span><script type="math/tex">^{-1}</script></span>)</p>
+</li>
+</ul>
+<h4 id="state_type-getstate"><code>state_type</code> GetState ()</h4>
+<blockquote></blockquote>
+<h4 id="void-printtofile-int-num_steps_1"><code>void</code> PrintToFile (<code>int</code> num_steps)</h4>
+<blockquote>
+<p>Print results of EBTEL simulation to filename supplied in configuration file.
+See documentation for the structure of the file itself and
+instructions on how to parse it.</p>
+</blockquote>
+<ul>
+<li><strong>num_steps</strong>    number of steps taken by the integration routine</li>
+</ul>
+<h4 id="void-saveresults-int-i-double-time"><code>void</code> SaveResults (<code>int</code> i, <code>double</code> time)</h4>
+<blockquote></blockquote>
+<ul>
+<li>
+<p><strong>i</strong>    Current timestep</p>
+</li>
+<li>
+<p><strong>time</strong>    Current time (in s)</p>
+</li>
+</ul>
+<h4 id="void-saveterms"><code>void</code> SaveTerms ()</h4>
+<blockquote></blockquote>
+<h4 id="void-setstate-state_type-state"><code>void</code> SetState (<code>state_type</code> state)</h4>
+<blockquote></blockquote>
+<ul>
+<li><strong>state</strong>    electron pressure, ion pressure, and density to set as the current loop state</li>
+</ul>
+<h4 id="void-setup"><code>void</code> Setup ()</h4>
+<blockquote>
+<p>Allocate space for results and set some parameters. If you
+create the object with the empty constructor, you need to
+call this later on. If you use the default config file approach,
+this is called automatically.</p>
+</blockquote>
+<h2 id="class-observer"><strong>class</strong> Observer</h2>
+<hr />
+<p>The Observer watches the integrator routine and is called at every timestep to do something. Here, the observer updates the state and saves any necessary results. </p>
+<h3 id="constructors_3">Constructors</h3>
+<h4 id="observer-loop-loop-dem-dem">Observer (<code>LOOP</code> loop, <code>DEM</code> dem)</h4>
+<blockquote>
+<p>Class for monitoring the integration routine. This object includes methods
+for watching the integration and saving any needed parameters at each timestep.</p>
+</blockquote>
+<ul>
+<li>
+<p><strong>loop</strong>    Loop instance used for saving loop results</p>
+</li>
+<li>
+<p><strong>dem</strong>    Dem instance used for saving emission measure results</p>
+</li>
+</ul>
+<h3 id="destructors_3">Destructors</h3>
+<h4 id="observer">~Observer ()</h4>
+<blockquote></blockquote>
+<h3 id="methods_3">Methods</h3>
+<h4 id="int-checknan-state_type-state-double-time-double-tau-double-old_time-double-old_tau"><code>int</code> CheckNan (<code>state_type</code> state, <code>double</code> time, <code>double</code> tau, <code>double</code> old_time, <code>double</code> old_tau)</h4>
+<blockquote>
+<p>Boost integrator does not check for NaNs so this is done manually. If a
+NaN is found anywhere in the state vector, the state and time are set
+back to the previous step and the timestep is reduced.</p>
+</blockquote>
+<ul>
+<li>
+<p><strong>state</strong>    current state of the loop system</p>
+</li>
+<li>
+<p><strong>time</strong>    current time</p>
+</li>
+<li>
+<p><strong>tau</strong>    current timestep</p>
+</li>
+<li>
+<p><strong>old_time</strong>    previous time</p>
+</li>
+<li>
+<p><strong>old_tau</strong>    previous timestep</p>
+</li>
+</ul>
+<h4 id="void-observe-state_type-state-double-time"><code>void</code> Observe (<code>state_type</code> state, <code>double</code> time)</h4>
+<blockquote>
+<p>Method called at each step in the integration. It calls methods
+from Loop and Dem to save relevant results.</p>
+</blockquote>
+<ul>
+<li>
+<p><strong>state</strong>    current state of the loop system</p>
+</li>
+<li>
+<p><strong>time</strong>    current time</p>
+</li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../../examples/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Examples
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../structs/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Structs
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="http://solar.rice.edu/" target="_blank" rel="noopener" title="solar.rice.edu" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M336.5 160C322 70.7 287.8 8 248 8s-74 62.7-88.5 152h177zM152 256c0 22.2 1.2 43.5 3.3 64h185.3c2.1-20.5 3.3-41.8 3.3-64s-1.2-43.5-3.3-64H155.3c-2.1 20.5-3.3 41.8-3.3 64zm324.7-96c-28.6-67.9-86.5-120.4-158-141.6 24.4 33.8 41.2 84.7 50 141.6h108zM177.2 18.4C105.8 39.6 47.8 92.1 19.3 160h108c8.7-56.9 25.5-107.8 49.9-141.6zM487.4 192H372.7c2.1 21 3.3 42.5 3.3 64s-1.2 43-3.3 64h114.6c5.5-20.5 8.6-41.8 8.6-64s-3.1-43.5-8.5-64zM120 256c0-21.5 1.2-43 3.3-64H8.6C3.2 212.5 0 233.8 0 256s3.2 43.5 8.6 64h114.6c-2-21-3.2-42.5-3.2-64zm39.5 96c14.5 89.3 48.7 152 88.5 152s74-62.7 88.5-152h-177zm159.3 141.6c71.4-21.2 129.4-73.7 158-141.6h-108c-8.8 56.9-25.6 107.8-50 141.6zM19.3 352c28.6 67.9 86.5 120.4 158 141.6-24.4-33.8-41.2-84.7-50-141.6h-108z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/rice-solar-physics" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d892486b.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
